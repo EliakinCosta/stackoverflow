@@ -13,4 +13,3 @@ Inside the [questions folder](https://github.com/eliakincosta/stackoverflow/tree
 ## License
 
 Free software: [MIT license](LICENSE)
-

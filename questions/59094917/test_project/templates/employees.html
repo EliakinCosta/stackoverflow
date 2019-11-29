@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Books</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Books</h2>
+    <table class="table">
+      <tr>
+        <th>Workbook Name</th>
+        <th>Deletion Deadline</th>
+        <th>Keep or Delete?</th>
+      </tr>
+      <!-- {% for book in object_list %}
+      <tr>
+        <td>{{book.name}}</td>
+        <td>{{book.owner_name}}</td>
+        <td>
+          <form action="{% url 'workbook_app:keep_or_delete' pk=book.pk %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-{%if book.marked_for_deletion %}primary{% else%}danger{% endif %}">{%if book.marked_for_deletion %}Keep{% else%}Delete{% endif %}</button>
+          </form>
+        </td>
+      </tr>
+      {%endfor%} -->
+    </table>
+  </div>
+
+</body>
+</html>

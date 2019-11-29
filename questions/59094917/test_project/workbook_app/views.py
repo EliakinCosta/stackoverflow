@@ -8,4 +8,4 @@ class Employees(SingleTableMixin, FilterView):
     model = Employee
     table_class = EmployeeTable
     template_name = 'employees.html'
-    filterset_fields = ['first_name']
+    filterset_fields = ['first_name', 'last_name']

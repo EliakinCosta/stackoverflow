@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'workbook_app',
     'django_filters',
+    'django_tables2',
 ]
 
 MIDDLEWARE = [

@@ -1,3 +1,4 @@
+{% load render_table from django_tables2 %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,25 +14,11 @@
 
   <div class="container">
     <h2>Books</h2>
-    <table class="table">
-      <tr>
-        <th>Workbook Name</th>
-        <th>Deletion Deadline</th>
-        <th>Keep or Delete?</th>
-      </tr>
-      <!-- {% for book in object_list %}
-      <tr>
-        <td>{{book.name}}</td>
-        <td>{{book.owner_name}}</td>
-        <td>
-          <form action="{% url 'workbook_app:keep_or_delete' pk=book.pk %}" method="POST">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-{%if book.marked_for_deletion %}primary{% else%}danger{% endif %}">{%if book.marked_for_deletion %}Keep{% else%}Delete{% endif %}</button>
-          </form>
-        </td>
-      </tr>
-      {%endfor%} -->
-    </table>
+    <form action="" method="get">
+        {{ filter.form.as_p }}
+        <input type="submit" />
+    </form>
+    {% render_table table %}
   </div>
 
 </body>

@@ -7,7 +7,7 @@ from django.urls import reverse
 
 
 class BookListView(ListView):
-    template_name = 'workbook_app/books.html'
+    template_name = 'books.html'
 
     def get_queryset(self):
         return Book.objects.all()

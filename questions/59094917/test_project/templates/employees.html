@@ -1,4 +1,10 @@
 {% load render_table from django_tables2 %}
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,14 +18,34 @@
 </head>
 <body>
 
-  <div class="container">
-    <h2>Books</h2>
-    <form action="" method="get">
-        {{ filter.form.as_p }}
-        <input type="submit" />
-    </form>
-    {% render_table table %}
-  </div>
+  <!--Employees data-->
+             <div class="filter-container container-fluid">
+                 <div class="row">
+                     <div class="col-md-10">
+                         <!--filter form-->
+                         <form action="" class="form form-inline employee-search-form" method="get">
+                             {% bootstrap_form filter.form layout='inline' %}
+                             {% bootstrap_button 'filter' %}
+                         </form>
+                     </div>
+
+                     <div class="col-md-2">
+                         <div class="btn-group download-btn">
+                             <button aria-expanded="false" aria-haspopup="true"
+                                     class="btn btn-warning dropdown-toggle"
+                                     data-toggle="dropdown" type="button">
+                                 Download
+                             </button>
+                             <div class="dropdown-menu">
+
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <!-- data rendered here -->
+             {% render_table table 'django_tables2/bootstrap.html' %}
+         </div>
 
 </body>
 </html>

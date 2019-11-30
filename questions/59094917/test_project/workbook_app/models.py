@@ -23,6 +23,10 @@ class Employee(models.Model):
     town_or_city_of_origin = models.CharField(_('town or city'), max_length=40)
     email = models.EmailField(_("email address"))
     phone_number = models.CharField(_('phone number'), validators=[phone_regex], max_length=17, blank=True)
+    job_title = models.CharField(_('job_title'), max_length=40)
+    dept_name = models.CharField(_('dept_name'), max_length=40)
+    hire_date = models.CharField(_('hire_date'), max_length=40)
+    emp_id = models.CharField(_('emp_id'), max_length=40)
 
     class Meta:
         verbose_name = _('Employee')

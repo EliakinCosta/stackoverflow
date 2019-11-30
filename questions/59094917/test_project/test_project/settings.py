@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'workbook_app',
     'django_filters',
     'django_tables2',
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [

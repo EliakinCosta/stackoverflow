@@ -6,6 +6,8 @@ from .forms import ThermalSourceForm
 class ThermalSourceAdmin(admin.ModelAdmin):
     form = ThermalSourceForm
     list_display = ('name', 'scheme_image_tag')
+    readonly_fields = ['name', 'scheme_image_tag']
+
 
 # Register your models here.
 admin.site.register(Word, ThermalSourceAdmin)

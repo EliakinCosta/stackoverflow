@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Student</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <form id="curriculo_form" method="post">
+    {% csrf_token %}
+
+    <button id="submitButton" class="btn btn-primary" type="submit">Salvar</button>
+    <div class="card" style="margin-bottom: 25px;">
+      <div class="card-header" id="headingFour">
+        <h5 class="mb-0">Idiomas</h5>
+      </div>
+      {{ formset_idioma.management_form }}
+      <div class="content-inside" id="form_set_idioma">
+        {% for form in formset_idioma %}
+        {{form.non_field_errors}}
+        {{form.errors}}
+        <table class='no_error'>{{ form }}</table>
+        {% endfor %}
+      </div>
+      <input class="btn btn-primary fixedbutton" type="button" value="Adicionar" id="add_form_set_idioma">
+      <div id="empty_form_set_idioma" style="display:none">
+        <table class='no_error'>{{ formset_idioma.empty_form }}<br></table>
+      </div>
+    </div>
+    <div class="card" style="margin-bottom: 25px;">
+      <div class="card-header" id="headingFive">
+        <h5 class="mb-0">Tecnologia</h5>
+      </div>
+      {{ formset_tecnologia.management_form }}
+      <div class="content-inside" id="form_set_tecnologia">
+        {% for form in formset_tecnologia %}
+        {{form.non_field_errors}}
+        {{form.errors}}
+        <table class='no_error'>{{ form }}</table>
+        {% endfor %}
+      </div>
+      <input class="btn btn-primary fixedbutton" type="button" value="Adicionar" id="add_form_set_tecnologia">
+      <div id="empty_form_set_tecnologia" style="display:none">
+        <table class='no_error'>{{ formset_tecnologia.empty_form }}<br</table>
+      </div>
+    </div>
+  </form>
+    <script type='text/javascript'>
+        $('#add_form_set_idioma').click(function(){
+            var form_set_idioma_index = $('#id_idiomas-TOTAL_FORMS').val();
+            $('#form_set_idioma').append($('#empty_form_set_idioma').html().replace(/__prefix__/g, form_set_idioma_index));
+            $('#id_idiomas-TOTAL_FORMS').val(parseInt(form_set_idioma_index) + 1);});
+
+            $('#add_form_set_tecnologia').click(function(){
+            var form_set_tecnologia_index = $('#id_tecnologias-TOTAL_FORMS').val();
+            $('#form_set_tecnologia').append($('#empty_form_set_tecnologia').html().replace(/__prefix__/g, form_set_tecnologia_index));
+            $('#id_tecnologias-TOTAL_FORMS').val(parseInt(form_set_tecnologia_index) + 1);
+        });
+    </script>
+</body>
+</html>
